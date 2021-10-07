@@ -1,0 +1,173 @@
+.shadow{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 99;
+    .box{
+      overflow: auto;
+      width: 385px;
+      height: 100%;
+      right: 0;
+      top: 0;
+      background: #FFFFFF;
+      box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .topBox{
+        position: relative;
+        h3{
+          margin: 0;
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 29px;
+        }
+        .closingBtn{
+          width: 50px;
+          height: 35px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          background: #fff;
+              border: 1px solid #F2F2F2;
+              box-sizing: border-box;
+              border-radius: 8px;
+              width: 40px;
+              height: 40px;
+              &:hover{
+              border: 1px solid #DBDBDB;
+              svg{
+                path{
+                  fill: #b5b5b5
+                }
+              }
+              }
+        }
+        .cartItems{
+          .sneakersItem{
+            margin-top: 30px;
+            margin-bottom: 20px;
+            overflow: auto;
+            border: 1px solid #F3F3F3;
+            box-sizing: border-box;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 20px 20px 29px 20px;
+            .namePrice{
+              display: flex;
+              flex-direction: column;
+              padding: 0px 12px 0px 21px;
+              p{
+                font-size: 14px;
+                line-height: 17px;
+              }
+              span{
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 17px;
+              }
+            }
+            button{
+              background: #fff;
+              border: 1px solid #F2F2F2;
+              box-sizing: border-box;
+              border-radius: 8px;
+              width: 48px;
+              height: 32px;
+              &:hover{
+              border: 1px solid #DBDBDB;
+              svg{
+                path{
+                  fill: #b5b5b5
+                }
+              }
+              }
+            }
+          }
+        }
+        
+      }
+      .bottomBox{
+        
+          svg{
+            margin-left: 49px;
+          
+          &:hover{
+          border: 1px solid #9DD558;
+            color: #9DD558;
+            background: #fff;
+            svg{
+              path{
+                stroke:#9DD558;
+              }
+            }
+          }
+        }
+        ul{
+          li{
+            display: flex;
+            padding-bottom: 19px;
+            &:last-child{
+              padding-bottom: 24px;
+            }
+            span{
+            font-size: 16px;
+            line-height: 19px;
+            }
+            b{
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 19px;
+            }
+            div{
+              flex: 1;
+              border-bottom: 1px dashed #DFDFDF;
+              box-sizing: border-box;
+            }
+          }
+        }
+      }
+    }
+  }
+.emptyCart{
+  padding-top: 155px;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  h3{
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    padding-top: 21px;
+    padding-bottom: 9px;
+  }
+  p{
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.4);
+    padding-bottom: 40px;
+  }
+  svg{
+    transform: rotate(180deg);
+    margin-right: 24px;
+  }
+}
+button.btn{
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  width: 325px;
+  height: 55px;
+  background: #9DD558;
+  border-radius: 18px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+}
