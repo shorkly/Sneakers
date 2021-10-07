@@ -4,7 +4,7 @@ function Header(props){
     return(
         <header>
                 <div className={style.logo}>
-                    <Link to='/'>
+                    <Link to={process.env.PUBLIC_URL + "/"}>
                     <img src={process.env.PUBLIC_URL + '/img/logo.png'} alt='' />
                     <div>
                         <h3>React Sneakers</h3>

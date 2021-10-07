@@ -49,7 +49,7 @@ function App() {
             <Route path='/favorites' exact>
             <Favorites />
             </Route>
-            <Route path='/' exact>
+            <Route path={process.env.PUBLIC_URL + "/"}>
             <Home items={items}
                   searchValue={searchValue}
                   setSearchValue={setSearchValue}
