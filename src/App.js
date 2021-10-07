@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Cart from './components/Cart'
 import axios from 'axios';
 import {Route} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
 import Favorites from './pages/Favorites'
 import Home from './pages/Home'
 
@@ -40,25 +41,27 @@ function App() {
     setCartItems(arr);
 }; */
   return (
-      <div className="wrapper">
-        {cartOpened && <Cart items={cartItems} onClose={()=>setCartOpened(false)} onRemove={onRemoveBtn} /> }
-        <Header onClickCart={() => setCartOpened(true)} />
-        {/* в любой компонент в реакте мы можем передавать пропсы */} {/* отсюда мы берем пропс onClickCart={....} и передаем в хеадер => function Header(PROPS){....} , если вызвать консоль.лог(пропс) там можно все увидеть */}
-        <span className='line'></span>
-        <main>
-            <Route path='/favorites' exact>
-            <Favorites />
-            </Route>
-            <Route path={process.env.PUBLIC_URL + "/"}>
-            <Home items={items}
-                  searchValue={searchValue}
-                  setSearchValue={setSearchValue}
-                  onSearchInp={onSearchInp}
-                  onAddToCart={onAddToCart}
-            />
-            </Route>
-        </main>
-      </div>
+      <Router>
+          <div className="wrapper">
+              {cartOpened && <Cart items={cartItems} onClose={()=>setCartOpened(false)} onRemove={onRemoveBtn} /> }
+              <Header onClickCart={() => setCartOpened(true)} />
+              {/* в любой компонент в реакте мы можем передавать пропсы */} {/* отсюда мы берем пропс onClickCart={....} и передаем в хеадер => function Header(PROPS){....} , если вызвать консоль.лог(пропс) там можно все увидеть */}
+              <span className='line'></span>
+              <main>
+                  <Route path='/favorites' exact>
+                      <Favorites />
+                  </Route>
+                  <Route path={process.env.PUBLIC_URL + "/"}>
+                      <Home items={items}
+                            searchValue={searchValue}
+                            setSearchValue={setSearchValue}
+                            onSearchInp={onSearchInp}
+                            onAddToCart={onAddToCart}
+                      />
+                  </Route>
+              </main>
+          </div>
+      </Router>
   );
 }
 

@@ -1,4 +1,3 @@
-
 function Favorites(){
     return(
             <section>
