@@ -52,55 +52,55 @@ section.products{
     line-height: 39px;
     padding: 40px 0;
   }
-  .topSection{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .search{
-      position: relative;
-      svg{
-        position: absolute;
-        left: 18px;
-        top: 15px;
-      }
-      .searchClose{
-        position: absolute;
-        right: 10px;
-        width: 18px;
-        height: 18px;
-        top: 13.5px;
-        cursor: pointer;
-      }
-      input{
-        color: #858585;
-        padding: 0 46px;
-        border: 1px solid #F3F3F3;
-        box-sizing: border-box;
-        border-radius: 10px;
-        width: 250px;
-        height: 45px;
-        &:focus{
-        border: 1px solid #dddcdc;
-        }
-        &:placeholder-shown{
-          padding-left: 46px;
-        }
-        &::placeholder{
-          font-size: 14px;
-          line-height: 17px;
-          color: #C4C4C4;
-          
-        }
-      }
-    }
-  }
   .allCards{
     display: flex;
     flex-wrap: wrap;
-    
+  }
+}
+.topSection{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search{
+  position: relative;
+  svg{
+    position: absolute;
+    left: 18px;
+    top: 15px;
+  }
+  .searchClose{
+    position: absolute;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+    top: 13.5px;
+    cursor: pointer;
+  }
+  input{
+    color: #858585;
+    padding: 0 46px;
+    border: 1px solid #F3F3F3;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 250px;
+    height: 45px;
+    &:focus{
+      border: 1px solid #dddcdc;
+    }
+    &:placeholder-shown{
+      padding-left: 46px;
+    }
+    &::placeholder{
+      font-size: 14px;
+      line-height: 17px;
+      color: #C4C4C4;
+
+    }
   }
 }
 .favorites{
+  padding-top: 50px;
   h3{
     font-weight: 600;
     font-size: 24px;
@@ -113,9 +113,11 @@ section.products{
     color: rgba(0,0,0,0.4);
     padding-bottom: 20px;
   }
-  img{
-    padding-top: 155px;
-  }
+.emptyFavorites{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
   button.btn{
     font-weight: 600;
     font-size: 16px;
@@ -138,4 +140,9 @@ section.products{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  .flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

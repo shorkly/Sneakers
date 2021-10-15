@@ -9,6 +9,7 @@ import Home from './pages/Home'
 function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
+  const [favItems, setFavItems] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [cartOpened, setCartOpened] = React.useState(false);
   React.useEffect(()=>{
@@ -17,19 +18,31 @@ function App() {
     }).then(json => {
       setItems(json)
     }) */
-    axios.get('https://615c9189c298130017736255.mockapi.io/items').then((res)=>{
+    axios.get('https://6137be32eac1410017c18470.mockapi.io/items').then((res)=>{
       setItems(res.data); //получаем данные о товарах
     });
-    axios.get('https://615c9189c298130017736255.mockapi.io/cart').then((res)=>{
+    axios.get('https://6137be32eac1410017c18470.mockapi.io/cart').then((res)=>{
       setCartItems(res.data); //получаем инфу о данных корзины
+    });
+    axios.get('https://6137be32eac1410017c18470.mockapi.io/favorites').then((res)=>{
+        setFavItems(res.data); //получаем инфу о данных фаворитов
     });
   }, []);
   const onAddToCart = (obj) => {
-    axios.post('https://615c9189c298130017736255.mockapi.io/cart', obj ); //добавляет в корзину
+    axios.post('https://6137be32eac1410017c18470.mockapi.io/cart', obj ); //добавляет в корзину
     setCartItems((prev)=>[...prev, obj]);
   }
-  const onRemoveBtn=(id)=>{ //даляет элемент из массива товаров в корзине
-    axios.delete(`https://615c9189c298130017736255.mockapi.io/cart/${id}`);
+  const onFavorite = async (obj) =>{
+      if(favItems.find(favObj=>favObj.id===obj.id)){
+          axios.delete(`https://6137be32eac1410017c18470.mockapi.io/favorites/${obj.id}`);
+          setFavItems((prev)=>prev.filter((item)=>item.id !== obj.id));
+      }else{
+          const {data} = await axios.post('https://6137be32eac1410017c18470.mockapi.io/favorites', obj); //добавляет в закладки
+          setFavItems((prev)=>[...prev, obj]);
+      }
+  }
+  const onRemoveBtn=(id)=>{ //удаляет элемент из массива товаров в корзине
+    axios.delete(`https://6137be32eac1410017c18470.mockapi.io/cart/${id}`);
     setCartItems((prev)=>prev.filter(item=>item.id!==id));
   }
   const onSearchInp = (event) =>{ //ищем соответствия в поиске
@@ -48,8 +61,14 @@ function App() {
               <span className='line'></span>
               <main>
                   <Switch>
-                      <Route path='/favorites' exact>
-                          <Favorites />
+                      <Route path={process.env.PUBLIC_URL + '/favorites'} exact>
+                          <Favorites items={favItems}
+                                     // searchValue={searchValue}
+                                     // setSearchValue={setSearchValue}
+                                     // onSearchInp={onSearchInp}
+                                     // onAddToCart={onAddToCart}
+                                     onFavorite={onFavorite}
+                          />
                       </Route>
                       <Route path={process.env.PUBLIC_URL + "/"}>
                           <Home items={items}
@@ -57,6 +76,7 @@ function App() {
                                 setSearchValue={setSearchValue}
                                 onSearchInp={onSearchInp}
                                 onAddToCart={onAddToCart}
+                                onFavorite={onFavorite}
                           />
                       </Route>
                   </Switch>

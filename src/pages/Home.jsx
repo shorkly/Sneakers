@@ -1,6 +1,7 @@
 import Card from "../components/Card";
+import React from "react";
 
-function Home({items, searchValue, setSearchValue, onSearchInp, onAddToCart}){
+function Home({items, searchValue, setSearchValue, onSearchInp, onAddToCart, onFavorite}){
     return(
             <section className='products'>
                 <div className='container'>
@@ -18,15 +19,12 @@ function Home({items, searchValue, setSearchValue, onSearchInp, onAddToCart}){
                         {
                             items
                                 .filter((item) => item.name.toLowerCase().includes(searchValue))
-                                .map((item) => (
+                                .map((item, index) => (
                                     <Card
-                                        name={item.name}
-                                        price={item.price}
-                                        img={item.img}
-                                        key={item.id}
-                                        onFav={()=> console.log('Added to fav')}
+                                        key={index}
+                                        onFav={(obj)=> onFavorite(obj)}
                                         onPlus={onAddToCart}
-                                        /* onDel={onDelete} */
+                                        {...item}
                                     />
                                 ))
                         }
