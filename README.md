@@ -2,10 +2,12 @@
 You can add cards to the cart and to the favorites, search by the name product you need
 
 ### Cart
-You can add cards there and delete frome there
+You can add cards there and delete from there
 
 ### Favorites section
-Not finalized but you can add elements there (now I'm working about deleting elements from there)
+You can add and delete elements from there
 
 ### Account section
-Not available yet
+After checkout your order will post there
+
+As a backend i used mockAPI. For style i used scss modules.
