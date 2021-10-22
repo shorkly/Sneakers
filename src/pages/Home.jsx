@@ -1,7 +1,28 @@
-import Card from "../components/Card";
 import React from "react";
+import Card from "../components/Card";
+//import {AppContext} from "../App";
 
-function Home({items, searchValue, setSearchValue, onSearchInp, onAddToCart, onFavorite}){
+function Home({items, searchValue, setSearchValue,
+                  onSearchInp,onAddToCart, onFavorite, isReady}){
+
+    //const {getAddedItems} = React.useContext(AppContext);
+    //console.log(getAddedItems)
+    const renderItems = () => {
+        const filteredItems = items.filter((item) =>
+            item.name.toLowerCase().includes(searchValue),
+        );
+        return (
+            isReady ? [...Array(8)] : filteredItems).map((item, index) => (
+                <Card
+                    key={index}
+                    onFav={(obj)=> onFavorite(obj)}
+                    onPlus={onAddToCart}
+                    //added={getAddedItems(item && item.id)}
+                    {...item}
+                    loading={isReady}
+                />
+            ));
+    }
     return(
             <section className='products'>
                 <div className='container'>
@@ -16,18 +37,7 @@ function Home({items, searchValue, setSearchValue, onSearchInp, onAddToCart, onF
                         </div>
                     </div>
                     <div className='allCards'>
-                        {
-                            items
-                                .filter((item) => item.name.toLowerCase().includes(searchValue))
-                                .map((item, index) => (
-                                    <Card
-                                        key={index}
-                                        onFav={(obj)=> onFavorite(obj)}
-                                        onPlus={onAddToCart}
-                                        {...item}
-                                    />
-                                ))
-                        }
+                        {renderItems()}
                     </div>
                 </div>
             </section>

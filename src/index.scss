@@ -99,7 +99,7 @@ section.products{
     }
   }
 }
-.favorites{
+.favorites, .orders{
   padding-top: 50px;
   h3{
     font-weight: 600;
@@ -109,11 +109,16 @@ section.products{
   }
   p{
     font-size: 16px;
-    line-height: 19px;
     color: rgba(0,0,0,0.4);
     padding-bottom: 20px;
   }
-.emptyFavorites{
+  .favorites p{
+    line-height: 19px;
+  }
+  .orders p{
+    line-height: 24px;
+  }
+.emptyFavorites, .emptyOrders{
   display: flex;
   align-items: center;
   flex-direction: column;

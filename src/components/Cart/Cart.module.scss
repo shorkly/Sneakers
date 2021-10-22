@@ -27,25 +27,23 @@
           line-height: 29px;
         }
         .closingBtn{
-          width: 50px;
-          height: 35px;
           position: absolute;
           right: 0;
           top: 0;
           background: #fff;
-              border: 1px solid #F2F2F2;
-              box-sizing: border-box;
-              border-radius: 8px;
-              width: 40px;
-              height: 40px;
-              &:hover{
-              border: 1px solid #DBDBDB;
-              svg{
-                path{
-                  fill: #b5b5b5
-                }
+          border: 1px solid #F2F2F2;
+          box-sizing: border-box;
+          border-radius: 8px;
+          width: 40px;
+          height: 40px;
+          &:hover{
+          border: 1px solid #DBDBDB;
+            svg{
+              path{
+                fill: #b5b5b5
               }
-              }
+            }
+          }
         }
         .cartItems{
           .sneakersItem{
@@ -92,22 +90,11 @@
         }
         
       }
-      .bottomBox{
-        
-          svg{
+      .bottomBox {
+          svg {
             margin-left: 49px;
-          
-          &:hover{
-          border: 1px solid #9DD558;
-            color: #9DD558;
-            background: #fff;
-            svg{
-              path{
-                stroke:#9DD558;
-              }
-            }
           }
-        }
+          }
         ul{
           li{
             display: flex;
@@ -133,12 +120,15 @@
         }
       }
     }
-  }
 .emptyCart{
   padding-top: 155px;
   flex-direction: column;
   text-align: center;
   align-items: center;
+  img{
+    width: 35%;
+    height: 50%;
+  }
   h3{
     font-weight: 600;
     font-size: 22px;
@@ -158,6 +148,21 @@
   }
 }
 button.btn{
+  &:disabled{
+    background: lightgrey;
+    cursor: wait;
+  }
+  &:hover{
+    border: 1px solid #9DD558;
+    color: #9DD558;
+    background: #fff;
+    svg{
+      path{
+        stroke: #9DD558;
+      }
+    }
+  }
+  cursor: pointer;
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
